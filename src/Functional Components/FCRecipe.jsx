@@ -9,8 +9,12 @@ import Typography from '@mui/material/Typography';
 
 export default function Recipe(props) {
 
+// function that called by button that send the id to delete by props to parent-FCRecipes
+const btnDelById=()=>{
+props.sendIdToDelFromRecipe(props.id)
+}
 
-
+// return new recipe card
   return (
     <div>
       <div style={{ margin:10, padding:10}}>
@@ -24,7 +28,7 @@ export default function Recipe(props) {
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" >
             <div style={{textAlign:'center'}}>
-            {props.name}
+            ID:{props.id}  {props.name}
             </div>
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -33,7 +37,7 @@ export default function Recipe(props) {
         </CardContent>
         <CardActions>
           <div style={{margin:"0 auto"}}>
-          <Button variant="outlined">Prepere dish</Button>
+          <Button variant="outlined" onClick={btnDelById}>Prepere dish</Button>
           </div>
         </CardActions>
       </Card>
